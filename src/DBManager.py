@@ -23,8 +23,8 @@ class DBManager:
     def get_all_vacancies(self):
         connection = psycopg2.connect(database=self.database_name, **self.params)
         with connection.cursor() as cursor:
-            cursor.execute('SELECT title_vacancy, company_name, salary'
-                           'FROM vacancies'
+            cursor.execute('SELECT vacancy_name, company_name, salary'
+                           'FROM vacancies  '
                            'JOIN companies USING (company_id);')
 
             data = cursor.fetchall()

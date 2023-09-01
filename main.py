@@ -1,5 +1,5 @@
 from config import config
-from src.utils import fill_db, get_data, fill_db_vacancies
+from src.utils import fill_db, get_data, fill_db_vacancies, create_tables
 from src.DBManager import DBManager
 
 
@@ -20,6 +20,7 @@ def main():
 
     database_name = 'hh_ru'
     params = config()
+    create_tables(database_name, params)
 
     fill_db(get_data(companies_ids), database_name, **params)
     fill_db_vacancies(get_data(companies_ids), database_name, **params)
