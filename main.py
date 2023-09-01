@@ -1,5 +1,5 @@
 from config import config
-from src.utils import fill_db, get_data
+from src.utils import fill_db, get_data, fill_db_vacancies
 from src.DBManager import DBManager
 
 
@@ -22,6 +22,7 @@ def main():
     params = config()
 
     fill_db(get_data(companies_ids), database_name, **params)
+    fill_db_vacancies(get_data(companies_ids), database_name, **params)
 
     db_manager = DBManager(database_name, params)
 
